@@ -10,6 +10,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "rollup": "^3.17.2"
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "postcss": "^8.4.21",
+    "postcss-preset-env": "^8.0.1",
+    "rollup": "^3.17.2",
+    "rollup-plugin-postcss": "^4.0.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }

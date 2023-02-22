@@ -1,0 +1,1 @@
+!function(o,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports,require("lodash")):"function"==typeof define&&define.amd?define(["exports","lodash"],e):e((o="undefined"!=typeof globalThis?globalThis:o||self).utils={},o._)}(this,(function(o,e){"use strict";o.foo=function(){console.log("foo exection ~");var o=e.join([2,3,4]);console.log(o)}}));
