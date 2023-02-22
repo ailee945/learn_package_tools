@@ -1,3 +1,5 @@
+'use strict';
+
 // 打包 umd 支持文件 (注意：需要添加 --name)
 // npx rollup ./libs/index.js -f umd -o dist/index.umd.js --name $
 // 打包 commonjs 支持文件
@@ -9,4 +11,4 @@ const foo = () => {
   console.log("foo exection ~");
 };
 
-export { foo };
+exports.foo = foo;
