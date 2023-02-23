@@ -1,6 +1,0 @@
-{
-	"devDependencies": {
-		"rollup-plugin-serve": "^2.0.2",
-		"rollup-plugin-livereload": "^2.0.5"
-	}
-}

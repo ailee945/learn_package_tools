@@ -3,6 +3,7 @@
     <div>{{ counter }}</div>
     <button @click="counter++">+1</button>
     <button @click="counter--">+1</button>
+    <button @click="counter -= 2">-2</button>
   </div>
 </template>
 

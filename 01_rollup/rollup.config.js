@@ -16,6 +16,38 @@ const replace = require("@rollup/plugin-replace");
 const serve = require("rollup-plugin-serve");
 const livereload = require("rollup-plugin-livereload");
 
+// 生产换环境和开发环境使用不同的插件
+const plugins = [
+  commonjs(),
+  nodeResolve(),
+  babel({
+    // 配置的作用 ???
+    babelHelpers: "bundled",
+    exclude: /node_modules/,
+  }),
+  postcss(),
+  vuePlugin(),
+  replace({
+    preventAssignment: true,
+    // "process.env.NODE_ENV": '"production"',
+    // OR
+    "process.env.NODE_ENV": JSON.stringify("production"),
+  }),
+];
+if (process.env.NODE_ENV === "production") {
+  plugins.push(terser());
+} else {
+  plugins.push(
+    serve({
+      contentBase: ".",
+      port: 8002,
+      // 自动打开浏览器
+      // open: true,
+    }),
+    livereload("dist")
+  );
+}
+
 module.exports = {
   input: "libs/index.js",
   // 传入数组可以打包多种格式
@@ -30,27 +62,5 @@ module.exports = {
   },
   // 不加这个选项的话，默认也会将lodash打包
   external: ["lodash"],
-  plugins: [
-    commonjs(),
-    nodeResolve(),
-    babel({
-      // 配置的作用 ???
-      babelHelpers: "bundled",
-      exclude: /node_modules/,
-    }),
-    terser(),
-    postcss(),
-    vuePlugin(),
-    replace({
-      preventAssignment: true,
-      // "process.env.NODE_ENV": '"production"',
-      // OR
-      "process.env.NODE_ENV": JSON.stringify("production"),
-    }),
-    serve({
-      contentBase: "libs",
-      port: 8002,
-    }),
-    livereload('dist'),
-  ],
+  plugins,
 };
