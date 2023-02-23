@@ -4,6 +4,10 @@
 // npx rollup ./libs/index.js -f cjs -o dist/index.cjs.js
 // 打包 浏览器 浏览器支持文件 iife(立即执行函数)
 // npx rollup ./libs/index.js -f iife -o dist/index.browser.js --name $
+// vue
+import {createApp} from 'vue'
+import App from '../vue/App.vue'
+createApp(App).mount(document.querySelector('#app'))
 
 import _ from "lodash";
 // const _ = require("loadsh");
