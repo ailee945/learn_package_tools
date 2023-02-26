@@ -1,0 +1,55 @@
+# gulp
+
+## 编写任务
+
+1. 公开任务
+
+2. 私有任务
+
+   1. series 任务依次执行
+
+   2. parallel 任务并发执行
+
+## 执行任务
+
+```shell
+# 执行任务
+npx gulp foo
+# 执行默认任务
+npx gulp
+# 监听任务
+```
+
+## 结束任务
+
+gulp 结束任务的两种方式
+
+1. cb 回调函数
+
+2. return 一个 stream / promise / event emitter / child process / observable 类型的函数
+
+## 读取和写入
+
+1. src
+
+   glob 的匹配规则
+
+   > 1. 一个 \*，在一个字符串中匹配任意数量的字符串，通常在匹配目录下的文件
+   > 2. 两个 \*，在多个字符串匹配中匹配任意数量的字符串，通常用在匹配目录下的文件
+   > 3. 取反（!），必须跟在非取反后面，第一个匹配到一组匹配项，后面的取反删除匹配项中的一部分，如 `['src/**/*/.js', '!src/vendor/']`
+
+2. dest
+
+## 对文件修改
+
+1. babel
+
+   ```js
+    pipe(babel(presets: ['@babel/presets-env']))
+   ```
+
+2. terser
+
+   ```js
+    pipe(terser(mangle:{ toplevel: true}))
+   ```
